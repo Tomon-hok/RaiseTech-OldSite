@@ -1,0 +1,489 @@
+$first: 1290px; // ロゴ横を消す
+$second: 1260px; //メニュー余白変え 
+$third: 1200px;  //ハンバーガーメニュー 
+$fourth:1080px; //メイン下変え
+$fifth: 767px; //スマホスタイル
+
+@mixin logo-side {
+  @media (max-width: ($first)) {
+    @content;
+  }
+}
+@mixin padding {
+  @media (max-width: ($second)) {
+    @content;
+  }
+}
+@mixin hamburger {
+  @media screen and (max-width: ($third)) {
+    @content;
+  }
+}
+@mixin main-bottom {
+  @media (max-width: ($fourth)) {
+    @content;
+  }
+}
+@mixin smart-phone {
+  @media screen and (max-width: ($fifth)) {
+    @content;
+  }
+}
+
+html{
+    font-size: 62.5%; /*下のフォントサイズを10pxで見せるための処置*/
+}
+
+body{
+    font-family: "Noto Sans JP",MyYuGothicM,YuGothic,-apple-system,BlinkMacSystemFont,"Hiragino kaku Gothic ProN",Meiryo,Verdana,arial,helvetica,sans-serif;
+    overflow-x: hidden;
+}
+
+//ヘッダー部分
+.header{
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    height: 70px;
+    width: 100%;
+    background-color: #fff;
+    z-index: 1000;
+
+    @include hamburger(){
+        height: 50px;
+        display: block;           
+    }
+}
+  
+//ナビゲーションメニュー
+.nav{
+
+    display: flex;
+    font-size: 1.6rem;
+    font-weight: bold;
+    transition: all  0.3s ease;
+    
+    li:hover{
+        background-color: #d2f5fc;
+    }
+
+    @include hamburger(){
+        flex-direction: column;
+
+        li:hover{
+            background-color: #fff;
+        }
+
+    }
+}
+
+//ロゴ関係
+.header-left{
+    display: flex;
+
+    img{
+        padding: 15px;
+        vertical-align: middle; /*表示中央*/
+
+        @include hamburger(){
+            position: fixed;
+            padding: 10px 0 10px 10px;
+            height: 50px;
+        }
+    }
+
+    p{
+        padding: 15px;
+        font-size: 1.4rem;
+        font-weight: bold;
+        white-space: nowrap;    /*改行回避*/
+        align-content: center;  /*表示中央*/
+        align-items: center;    /*表示中央*/
+
+        @include hamburger(){
+            display: none;
+        }
+    }
+}
+
+//メニュー関係
+.header-right{
+    display: block;
+    white-space: nowrap;  
+    line-height: 70px;
+   
+    li a{
+        padding: 0 15px;
+    }
+
+    @include hamburger(){
+        margin-top: 50px;
+        line-height: 50px;
+        width: 100%;
+    }
+}
+
+//「申込」ボタン
+.header-apply-btn{
+    background-color: #2498b3;
+    color: #fff;
+    padding: 0px 10px;
+
+    @include hamburger(){
+        display: none;
+    }
+}
+
+//ナビゲーションメニュー（個々：１階層）
+.drop-down {
+    position: relative;
+
+    @include hamburger(){
+        background-color: #fff;
+
+
+        /* ①プラスの横線 */
+        &.close:before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            right: 13px;
+            width: 24px;
+            height: 2px;
+            background: #121212;
+            transform: translateY(-50%);
+        }
+  
+        /* ②プラスの縦線 */
+        &.close:after {
+            content: "";
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            width: 2px;
+            height: 24px;
+            background: #121212;
+            transform: translateY(-50%);
+        }
+  
+        /* ③オープン時にopenクラスを付与（縦線を回転させて非表示に） */
+        &.close.open:after {
+            top: 25%;
+            opacity: 0;
+            transform: rotate(90deg);
+        }
+         
+    }
+
+ }
+
+
+ //ナビゲーションメニュー（個々：２階層）
+.drop-down-menu {
+    display: none;
+    position: absolute;
+    background-color: #e9f8fb;
+    white-space: nowrap;
+    z-index: 999;
+
+    a{
+        font-weight: 500;
+        font-size: 1.6rem;
+        line-height: 52px;
+        padding: 3px 60px 3px 15px;
+        height: auto;
+    }
+
+    li:hover(){
+        display: block;
+        color: #2498b3;
+        background-color: #fff;
+    }
+
+    @include hamburger(){
+        background-color: #fff;
+        position: static;
+        display: none;
+
+        a {
+            font-weight: 300;
+            font-size: 1.6rem;
+            line-height: 40px;
+            height: auto;
+        }
+
+        li:hover{
+            background-color: #e9f8fb;
+        }
+        
+    }
+
+}
+
+//スマホ用（講師紹介）
+.down-menu{
+    @include hamburger(){
+        background-color: #fff;
+    }    
+}
+
+.down-menu:hover(){
+    @include hamburger(){
+        background-color: #e9f8fb;
+    }
+}
+
+li {
+    list-style-type: none;
+}
+
+span{
+    font-size: 1.8rem;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/*メイン上*/
+.main-top{
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    height: 750px;
+
+    padding-top: 5px;
+    width: 100%;
+
+    background-image : url(images/bg-hero1.png),url(images/bg-hero2.png ),url(images/bg-hero3.png );
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: scroll,scroll,fixed;
+    z-index: 100;
+
+    @include smart-phone(){
+        -webkit-box-align: end;
+        align-items: flex-end;
+        background-position: center 20px;
+        height: 320px;
+    }
+
+}
+
+.main-top-innerbox{
+    position: relative;
+    width: 450px;
+    height: 300px;
+    margin-top: 30px;
+    border-radius: 10px;
+    padding: 43px 40px 19px;
+    background-color: #fff;
+    text-align: center;
+    margin : 145px auto 0 auto;
+
+    @include smart-phone(){
+        width: 100%;
+        max-width: 100%;
+        max-height: 50%;
+        margin-top: 210px;
+        padding: 3px 0;
+        border-radius: 0;
+        z-index: 150;
+    }
+
+    img{
+        width: 280px;
+        height: 58px;
+        margin-top: 0;
+        margin-bottom: 0.3em;
+
+        @include smart-phone(){
+            display: none;
+        }
+    }
+
+    p{
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin: 1.5em 0em 0.5em 0em;
+
+        @include smart-phone(){
+            padding: 10px 0;
+            font-size: 1.3rem;
+            transition: .5s;
+            transition-property: all;
+            transition-duration: 0.5s;
+            transition-timing-function: ease;
+            transition-delay: 0s;
+        }
+    }
+
+}
+
+p.main-top-btn{
+    display: inline-block;
+    background-color: #2498b3;
+    padding: 15px 50px;
+    border-radius: 5px;
+}
+
+.main-top-btn a{
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 700;
+
+    @include smart-phone(){
+        font-size: 1.3rem;
+    }
+}
+
+/*メイン下*/
+.main-bottom{
+    background-color: #000;
+    padding-bottom: 50px;
+
+    @include smart-phone(){
+        display: block;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+    }
+}
+
+.main-bottom-contents{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -200px;
+
+    @include smart-phone(){
+        margin-top: 100px;
+        display: block;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.bottom-contents{
+    width: 230px;
+    text-align: center;
+    margin: 0 50px;
+    z-index: 700;
+
+    @include smart-phone(){
+        flex-direction: column;
+        width: auto;
+        padding: 10px 0 30px 0;
+    }
+}
+
+.bottom-icon{
+    width: 230px;
+    height: 230px;
+    margin: 0 auto;
+    color: #000;
+    border: solid 6px;
+    border-color: #000;
+    border-radius: 50%;
+    background-color: #fff;
+    font-size: 100px;
+        
+    i{
+        padding-top: 56px;
+        -webkit-text-stroke: 3px #fff;
+    }
+
+}
+
+.bottom-contents-title{
+    color: #fff;
+    margin: 0.2em 0 0 0;
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+.bottom-contents-detail{
+    color: #fff;
+    margin: 0.5em 0 0 0;
+    text-align: left;
+    font-size: 1.6rem;
+    font-weight: 700;
+
+    @include smart-phone(){
+        flex-direction: column;
+        width: auto;
+        padding: 10px 0 30px 0;
+        line-height: 1.7;
+   }
+}
+
+//ハンバーガーボタン
+.header-right-btn{
+    display: none;
+    top: 0;
+    right: 0;          
+    width: 50px;
+    height: 50px;
+    border:none;
+    margin-left: auto;    
+    cursor: pointer;
+    z-index: 2000;
+
+    @include hamburger{
+        display: block;
+        position: fixed;
+    };
+    
+  
+    //ライン共通スタイル指定
+    &__line{
+      position: absolute;
+      left: 14px;
+      top: 10px;
+      background-color: #2498b3; //線の色
+      width: 23px; //線の長さ
+      height: 2px; //線の太さ
+      transition: all 0.3s; //あとで動きをつけるため
+    
+      //個々ライン位置指定
+      &:nth-of-type(1){
+        top: 15px;
+      }
+      &:nth-of-type(2){
+        top: 24px;
+      }
+      &:nth-of-type(3){
+        top: 33px;
+      }
+    }
+  
+    //追加
+    &.open{
+      background-color: #2498b3;
+
+      .header-right-btn__line{
+        transition: all 0.3s;
+        
+        &:nth-of-type(1){
+          transform: rotate(45deg);
+          background-color: #fff;
+          top: 24px;
+        }
+        
+        &:nth-of-type(2){
+          transform: rotate(-45deg);
+          background-color: #fff;
+          top: 24px;
+        }
+
+        &:nth-of-type(3){
+          width: 0px;
+        }
+      }
+    }
+  }
+  
+  
+  

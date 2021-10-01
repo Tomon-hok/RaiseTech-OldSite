@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF=8">
+		<title>RaiseTech(レイズテック）</title>		
+		<meta name="descrition" content="no-contents">
+
+		<!--css-->
+		<link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+		<!--<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="toggle.css">-->
+        <link rel="stylesheet" href="raisetech.css">
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
+    </head>
+
+	<body>
+        <!--header部分-->
+        <header class="header">
+    
+            <!--左側（ロゴ・キャッチコピー）-->
+            <div class="header-left">
+                <!--logo-->
+                <a href="#">
+                    <img src= "./images/header-logo.svg" alt= "RaiseTech（レイズテック）">
+                </a>
+                <p>
+                    最速で<span>「稼げる」</span>プロになる<br>エンジニアリングスクール
+                </p>
+            </div>
+
+            <!--右側（ナビ）-->
+            <nav class="header-right">
+                <ul class ="nav">
+                    <!--子要素を持つ親の<li>にはdrop-downというクラス名をつける-->
+                    <li class="drop-down close"><a href="#">はじめての方へ</a>
+                        <!--子要素はdrop-down-menuというクラス名にする-->
+                        <ul class="drop-down-menu">
+                            <li><a href="#">サポート体制</a></li>
+                            <li><a href="#">トライアル受講</a></li>
+                            <li><a href="#">就職・転職支援制度</a></li>
+                            <li><a href="#">ご利用の流れ</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="drop-down close"><a href="#">コース案内</a>
+                        <ul class="drop-down-menu">
+                            <li><a href="#">マーケティングコース</a></li>
+                            <li><a href="#">デザインコース</a></li>
+                            <li><a href="#">WordPress副業コース</a></li>
+                            <li><a href="#">AWSコース</a></li>
+                            <li><a href="#">AWS自動化コース</a></li>
+                            <li><a href="#">Javaコース</a></li>
+                            <li><a href="#">Javaフレームワークコース</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="down-menu"> <a href="#">講師紹介</a></li>
+
+                    <li class="drop-down close"><a href="#">卒業生の声・実績</a>
+                        <ul class="drop-down-menu">
+                            <li><a href="#">卒業生の声</a></li>
+                            <li><a href="#">転職・案件実績</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="drop-down close"><a href="#">メディア</a>
+                        <ul class="drop-down-menu">
+                            <li><a href="#">動画一覧</a></li>
+                            <li><a href="#">掲載記事一覧</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="drop-down close"><a href="#">サポート</a>
+                        <ul class="drop-down-menu">
+                            <li><a href="#">よくあるご質問</a></li>
+                            <li><a href="#">お問い合わせ</a></li>
+                        </ul>
+                    </li>
+
+                    <button class="header-apply-btn">受講お申込み</button>
+                </ul>
+            </nav>
+
+           <!-- ハンバーガーメニュー部分 --> 
+           <div class="header-right-btn">
+                <span class="header-right-btn__line"></span>
+                <span class="header-right-btn__line"></span>
+                <span class="header-right-btn__line"></span>
+            </div>
+        </header>
+
+        <main>
+            <div class="main-top">
+                    <div class="main-top-innerbox">
+                        <img src="images/header-logo.svg" alt= "RaiseTech（レイズテック）">
+                        <p>
+                            はじめまして。RaiseTech（レイズテック）は<br>
+                            最速で「稼げる」エンジニアになるための<br>
+                            実戦的なWebエンジニアスクールです  
+                        </p>
+                        <p class="main-top-btn">
+                            <a href="#">マンガでわかるRaiseTech</a>
+                        </p>
+                    </div>
+            </div>
+
+            <div class="main-bottom">
+                <div class="main-bottom-contents">
+
+                    <div class="bottom-contents">
+                        <div class="bottom-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <p class="bottom-contents-title">現場主義</p>
+                        <p class="bottom-contents-detail">「プログラム」だけでは稼げない！現場で求められる「技術」のみ教えます。</p>
+                    </div>
+
+
+                    <div class="bottom-contents">
+                        <div class="bottom-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <p class="bottom-contents-title">現役講師</p>
+                        <p class="bottom-contents-detail">「今、求められている技術」をリアルタイムに教えてくれる、現役の技術者だけが講師です。</p>
+                    </div>
+
+                    <div class="bottom-contents">
+                        <div class="bottom-icon">
+                            <i class="far fa-life-ring"></i>
+                        </div>
+                        <p class="bottom-contents-title">徹底サポート</p>
+                        <p class="bottom-contents-detail">期間中の質疑応答無制限！個別進捗管理！挫折させないサポートを徹底します。</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="navigation.js"></script>
+    </body>
+</html> 
