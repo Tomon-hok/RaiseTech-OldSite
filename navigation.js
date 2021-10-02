@@ -1,12 +1,3 @@
-$(window).on('load resize', function(){
-  if($(window).innerWidth() < 1200 ){
-    $('.header-right').hide();//非表示
-  }else{
-    $('.header-right').show();//表示
-    $('.header-right-btn').removeClass('click');
-  };
-}); 
-
 //ハンバーガボタンが押されたら、openクラス付与、メニュー下げる
 $('.header-right-btn').on('click',function(){
   $('.header-right-btn').toggleClass('open');
@@ -14,7 +5,7 @@ $('.header-right-btn').on('click',function(){
 });
 
 
-//ハンバーガーボタン
+//「＋」と「ー」
 $(function () {
   $('.drop-down.close').hover(function () {
     //openクラスをつける
@@ -31,7 +22,15 @@ $(function(){
   });
 });
 
-
+$(window).on('load resize', function(){
+  if($(window).innerWidth() < 1200 ){
+    $('.header-right').hide();//非表示
+    $('.header-right-btn').removeClass('open');    
+  }else{
+    $('.header-right').show();//表示
+    $('.header-right-btn').removeClass('open');    
+  };
+}); 
 
 
 

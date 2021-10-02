@@ -458,13 +458,6 @@ p.main-top-btn {
   z-index: 2000;
 }
 
-@media screen and (max-width: 1200px) {
-  .header-right-btn {
-    display: block;
-    position: fixed;
-  }
-}
-
 .header-right-btn__line {
   position: absolute;
   left: 14px;
@@ -513,5 +506,12 @@ p.main-top-btn {
 
 .header-right-btn.open .header-right-btn__line:nth-of-type(3) {
   width: 0px;
+}
+
+@media screen and (max-width: 1200px) {
+  .header-right-btn {
+    display: block;
+    position: fixed;
+  }
 }
 /*# sourceMappingURL=raisetech.css.map */

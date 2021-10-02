@@ -430,12 +430,6 @@ p.main-top-btn{
     margin-left: auto;    
     cursor: pointer;
     z-index: 2000;
-
-    @include hamburger{
-        display: block;
-        position: fixed;
-    };
-    
   
     //ライン共通スタイル指定
     &__line{
@@ -483,7 +477,13 @@ p.main-top-btn{
         }
       }
     }
-  }
+
+    @include hamburger{
+        display: block;
+        position: fixed;
+    }
+
+ }
   
   
   
